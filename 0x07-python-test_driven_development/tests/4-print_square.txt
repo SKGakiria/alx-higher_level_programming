@@ -1,0 +1,61 @@
+4-print_square.py
+=================
+
+This module defines a square printing function ``print_square(size)``.
+
+Using ``print_square``
+---------------------
+``print_square(...)`` prints squares with the ``#`` character.
+``size`` is the size length of the square.
+
+    >>> print_square = __import__('4-print_square').print_square
+    >>>	print_square(1)
+    #
+
+    >>> print_square(4)
+    ####
+    ####
+    ####
+    ####
+
+    >>>	print_square(10)
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+
+    >>>	print_square(0)
+
+Invalid Sizes
+-------------
+``size`` must be an integer, otherwise a TypeError exception message is raised.
+
+    >>>	print_square("not int")
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    >>>	print_square(4.6)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    >>>	print_square(None)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+if ``size`` is less than 0, a ValueError exception message is raised.
+
+    >>>	print_square(-5)
+    Traceback (most recent call last):
+    ValueError: size must be >= 0
+
+if ``size`` is a float and is less than 0, a TypeError exception message is raised.
+
+    >>>	print_square(-5.8)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
