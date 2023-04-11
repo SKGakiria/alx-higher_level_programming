@@ -1,0 +1,54 @@
+7-base_geometry.py
+==================
+
+This module is for writing a BaseGeometry class (based on 6-base_geometry.py).
+
+Import class:
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+------------------
+Rename:
+    >>> bg = BaseGeometry()
+
+==================
+
+Run test:
+
+    >>> bg.integer_validator("my_int", 12)
+
+    >>> bg.integer_validator("my_int", 12.5)
+    Traceback: (most recent call last):
+    TypeError: value must be integer
+
+    >>> bg.integer_validator("my_int", 0)
+    Traceback: (most recent call last):
+    ValueError: value  must be greater than 0
+
+    >>> bg.integer_validator("my_int", -5)
+    Traceback: (most recent call last):
+    ValueError: value must be greater than 0
+
+    >>> bg.integer_validator("my_int", 12, 7, 8)
+    Traceback: (most recent call last):
+    TypeError: integer_validator() takes 3 positional 
+               arguments but 5 were given
+
+    >>> bg.integer_validator()
+    Traceback: (most recent call last):
+    TypeError: integer_validator() missing 2 required 
+               positional arguments: 'name' and 'value'
+
+    >>> bg.integer_validator("my_int")
+    Traceback: (most recent call last):
+    TypeError: integer_validator() missing 1 required 
+               positional arguments: 'value'
+
+    >>> bg.integer_validator(12)
+    Traceback: (most recent call last):
+    TypeError: integer_validator() missing 1 required 
+               positional arguments: 'name'
+
+    >>> bg.integer_validator("my_int", "my_int")
+    Traceback: (most recent call last):
+    TypeError: value must be integer
