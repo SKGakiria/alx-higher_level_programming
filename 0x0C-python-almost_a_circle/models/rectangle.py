@@ -124,7 +124,7 @@ class Rectangle(Base):
             for i, arg in enumerate(args):
                 setattr(self, my_list[i], arg)
         if kwargs and len(kwargs) != 0:
-            for k, v in kwargs.iems():
+            for k, v in kwargs.items():
                 setattr(self, k, v)
 
     def to_dictionary(self):

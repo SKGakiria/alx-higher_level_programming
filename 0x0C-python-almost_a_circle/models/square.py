@@ -2,6 +2,7 @@
 """
 The almost a circle module
 """
+from models.base import Base
 from models.rectangle import Rectangle
 
 
@@ -33,7 +34,6 @@ class Square(Rectangle):
         """Updating the square."""
         my_list = ["id", "size", "x", "y"]
         if args and len(args) != 0:
-            i = 0
             for i, arg in enumerate(args):
                 setattr(self, my_list[i], arg)
         if kwargs and len(kwargs) != 0:

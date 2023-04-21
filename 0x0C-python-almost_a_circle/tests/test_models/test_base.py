@@ -7,7 +7,8 @@ import unittest
 import os
 from models import base
 from models.base import Base
-from models. rectangle import Rectangle
+from models.rectangle import Rectangle
+from models.square import Square
 
 
 class TestBase_instantiation(unittest.TestCase):
@@ -21,8 +22,7 @@ class TestBase_instantiation(unittest.TestCase):
     def test_None_id(self):
         b1 = Base(None)
         b2 = Base(None)
-        b3 = Base(None)
-        self.assertEqual(b1.id, b3.id - 2)
+        self.assertEqual(b1.id, b2.id - 1)
 
     def test_unique_id(self):
         self.assertEqual(12, Base(12).id)
@@ -37,7 +37,7 @@ class TestBase_instantiation(unittest.TestCase):
         self.assertEqual(16, b.id)
 
     def test_dict_id(self):
-        self.assertEqual({1: "a", 2: "b"}, Base({1: "a", 2: "b"}).id)
+        self.assertEqual({"a": 1, "b": 2}, Base({"a": 1, "b": 2}).id)
 
     def test_str_id(self):
         self.assertEqual("String", Base("String").id)
@@ -58,7 +58,13 @@ class TestBase_instantiation(unittest.TestCase):
         self.assertEqual((1, 2, 3, 4), Base((1, 2, 3, 4)).id)
 
     def test_range_id(self):
-        self.assertEqual(range(5), Base(range(5).id)
+        self.assertEqual(range(5), Base(range(5)).id)
+
+    def test_bytes_id(self):
+        self.assertEqual(b'Python', Base(b'Python').id)
+
+    def test_bytearray_id(self):
+        self.assertEqual(bytearray(b'abcde'), Base(bytearray(b'abcde')).id)
 
     def test_inf_id(self):
         self.assertEqual(float('inf'), Base(float('inf')).id)
