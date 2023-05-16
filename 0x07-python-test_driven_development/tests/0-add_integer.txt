@@ -5,7 +5,7 @@ This module defines an integer addition function ``add_integer(a, b=98)``.
 
 Using ``add_integer``
 ---------------------
-``add_integer(...)`` returns the addition of its two arguments. For numbers, 
+``add_integer(...)``` returns the addition of its two arguments. For numbers, 
 that the value is equivalent to using the ``+`` operator.
 
     >>> add.integer = __import__('0-add_integer').add_integer
@@ -38,7 +38,7 @@ The second argument is 98 by default.
 
 Non_Numbers
 ------------
-``add_integer()``expects that both arguments are either integers or floats.
+``add_integer()`` expects that both arguments are either integers or floats.
 TypeError exception is raised if neither argument is an integer or float.
 
     >>>	add_integer("look", 8)
@@ -62,4 +62,24 @@ is only printed for the first argument.
 
     >>>	add_integer("look", "around")
     Traceback (most recent call last):
-    TypeError: a must be an integer 
+    TypeError: a must be an integer
+
+Function fails if infinity is provided.
+
+    >>> add_integer(float('inf'))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+    >>> add_integer(float('inf'), 4)
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+with NaN numbers too.
+
+    >>> add_integer(float('nan'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
+
+    >>> add_integer(float('nan'), 4)
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
