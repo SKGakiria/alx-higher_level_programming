@@ -13,10 +13,10 @@ request.get(apiURL, { json: true }, (error, response, body) => {
   const tasksCompleted = {};
   body.forEach((todo) => {
     if (todo.completed) {
-      if (todo.userId in tasksCompleted) {
-        tasksCompleted[todo.userId] += 1;
-      } else {
+      if (!tasksCompleted[todo.userId]) {
         tasksCompleted[todo.userId] = 1;
+      } else {
+        tasksCompleted[todo.userId] += 1;
       }
     }
   });
