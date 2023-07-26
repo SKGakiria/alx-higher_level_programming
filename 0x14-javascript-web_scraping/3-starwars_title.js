@@ -3,10 +3,10 @@
 // where the episode number matches a given integer
 
 const request = require('request');
-const movie_id = process.argv[2];
-const r_url = `https://swapi-api.alx-tools.com/api/films/${movie_id}`;
+const movieID = process.argv[2];
+const rURL = `https://swapi-api.alx-tools.com/api/films/${movieID}`;
 
-request.get(r_url, (error, response, body) => {
+request.get(rURL, (error, response, body) => {
   if (error) {
     console.log(error);
   } else {
